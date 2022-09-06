@@ -1,0 +1,326 @@
+
+#part01-border{
+    border-bottom: 1px solid black;
+    min-height: 60vh;
+    padding: 8vh 2vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#part01-line01-left-side{
+    max-width: 60vw;
+}
+
+
+#part01-line01-left-side,#body-text-explanation{
+    transition-timing-function: ease;
+    transition-duration: 2s;
+    transition-delay: 0.4s;
+    
+}
+
+#body-text-title{
+    transition-timing-function: ease;
+    transition-duration: 1s;
+}
+
+#part01-border-title{
+    font-size: 250%;
+    margin-bottom: 5vh;
+}
+
+#part01-border-chosen,#cards-learned-title{
+    font-size: 150%;
+}
+
+#cards-i-need-to-learn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+#body-text-picture{
+    background-image: url('../img/flashcardR.jpg');
+    background-repeat: no-repeat;
+    height: 65vh;
+    width: 30vw;
+    border-radius:  20%  
+}
+
+#body-text-title{
+    text-align: center;
+    font-size: 250%;
+}
+
+#body-text-explanation{
+    font-size: 150%;
+    margin: 3% 0%;
+}
+
+#part02-border{
+    min-height: 60vh;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5vh 0;
+}
+
+#part02-title{
+    font-size: 250%;
+    font-weight: 500;
+}
+
+#part02-button-new-deck{
+    color: white;
+    text-decoration: none;
+    font-style: none;
+    font-size: 110%;
+    background-color: black;
+    padding: 0.5vh 0.9vw;
+    font-weight: 600;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+}
+
+#part02-button-new-deck:hover{
+    background-color: white;
+    color: black;
+    transform: translateY(-3vh);
+    border: solid 1px black;
+}
+
+#part02-button-new-deck-p{
+    margin-top: 3.5vh;
+    margin-bottom:7.5vh
+}
+
+#deck-area{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin: 0 5vw;
+}
+
+#deck-area a{
+    text-decoration: none;
+    font-style: none;
+}
+
+.part02-logged-title{
+    font-size: 150%;
+    margin-bottom: 1vh;
+}
+
+.part02-logged-deck{
+    background-color: black;
+    color: white;
+    margin: 1.5vh 1.5vw;
+    margin-bottom: 0;
+    padding: 1.5vh 0;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+    border: solid black 1px;
+    
+}
+
+.a-delete{
+    margin: 0 1.5vw;
+    padding-bottom: 0.7vh;
+    background-color: black;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+}
+
+.a-delete a{
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+}
+
+.part02-logged-deck a p{
+    text-decoration: none;
+    font-style: none;
+}
+
+
+.part02-logged-deck:hover{
+    background-color: white;
+    color: black;
+    border: solid black 1px;
+    transform: translateY(-3vh);
+}
+
+
+#reveal-button{
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 1vh 1vw;
+    transition-timing-function:ease;
+    transition-duration: 1s;
+    font-size: 150%;
+}
+
+#card-answser{
+    margin-top: 2vh;
+}
+
+#reveal-button:hover{
+    background-color: black;
+    color: white;
+}
+
+#card-Name,.randomCardName,#hear{
+    text-align: center;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    font-size: 200%;
+}
+
+.information-p{
+    margin: 0 2vh;
+    align-items: center;
+    padding: 5px;
+    transition:2s;
+}
+
+
+#information-div{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+#card-Name{
+    transition-timing-function:ease;
+    transition-duration: 1s;
+}
+
+
+#card-answser{
+    transition-timing-function:ease;
+    transition-duration: 1s;
+    font-size: 200%;
+}
+
+
+#card-input{
+    padding: 1vh 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom: 1px solid black;
+    font-size: 150%;
+    align-items: center;
+}
+
+#card-buttons{
+    text-align: center;
+}
+
+#body-text-scroll{
+    border-bottom: 1.7px solid black;
+    max-width: fit-content;
+    padding-bottom: 0.3vh;
+}
+
+.card-buttons-class{
+    background-color: black;
+    color: white;
+    padding: 1vh 1.5vw;
+    font-size: 140%;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+}
+
+.card-buttons-class:hover{
+    background-color: white;
+    color:black;
+}
+
+#card-name-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#hear{
+    position: absolute;
+    left: 60vw;
+    background-color: black;
+    color:white;
+    padding: 3px;
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+#part01-border-accessDeck{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    min-height: 75vh;
+    padding: 8vh 2vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#hit-rate{
+    text-align: center;
+    /*border: greenyellow 3px solid;*/
+    border-radius: 100%;
+}
+
+
+#rate-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3vh;
+}
+#rate-input{
+  -webkit-appearance: none;
+  outline: none;
+  height: 15px;
+  background: white;
+  border: 0.5px solid black;
+}
+#rate-input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height:15px;
+    width: 16px;
+    background: black;
+}
+
+#radio-hidden{
+    border: 1px solid black;
+}
+
+#content-example{
+    margin: 2vh 0;
+}
+
+#content-error{
+    padding: 0.7vh 0;
+    margin: 0 25vw;
+    margin-top: 2vh;
+    font-size: 150%;
+    background-color: rgb(233, 31, 31);
+    text-align: center;
+}

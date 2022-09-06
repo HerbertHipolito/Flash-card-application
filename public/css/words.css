@@ -1,0 +1,109 @@
+#button-get-words{
+    margin: 5vh 0;
+    background-color: black;
+    color: white;
+    font-size: 150%;
+    padding: 1vh;
+    cursor: pointer;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+}
+
+#button-get-words:hover{
+    background-color:white;
+    color: black;
+
+}
+
+
+#words-area{
+    margin: 5vh 3vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.word-id{
+    display: flex;
+    flex-direction: row;
+    margin:0.8vh 0
+}
+
+.radio-words{
+    margin-left: 0.7vw;
+}
+
+#form-checkbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button-checkbox{
+    margin-bottom: 5vh;
+    background-color: black;
+    color: white;
+    padding: 1vh 0.5vw;
+    font-size: 180%;
+    cursor: pointer;
+}
+
+#deck-Name{
+    margin-bottom: 5vh;
+}
+
+#result-message{
+    margin-bottom: 15vh;
+}
+
+#result-message p{
+    font-size: 220%;
+}
+
+#tutorial-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+#id-example{
+    padding: 0.6vh;
+    background-color: black;
+    color: white;
+    font-size: 120%;
+    height: min-content;
+    border-radius: 10%;
+}
+
+#id-tutorial,#id-example{
+    margin-top: 5vh;
+    font-size: 120%;
+}
+
+#all-div{
+    display: flex;
+    flex-direction: row;
+    margin: 5vh 0;
+    align-items: center;
+}
+
+#all-div p{
+    margin-right: 3vw;
+    font-size: 120%;
+}
+
+#error-div{
+    margin: 0 15vw;
+    margin-top: 4vh;
+    padding: 0.7vh;
+    background-color: rgb(231, 73, 73);
+    font-size: 150%;
+    transition-timing-function: ease;
+    transition-duration: 0.5;
+}
+
+#error-div:hover{
+    background-color: black;
+    color:white
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/myAccountBody.css">
+</head>
+<body>
+
+    <%-header%>
+
+    <div id="part01-border">
+        <p id="your-data">Your information</p>
+        <div id="your-data-div">
+            <div id="your-data-div-login-email">
+                <p class="your-data-p" id="login-text">Login: <%=userToSend['login']%></p>
+                <p class="your-data-p" id="email-text">Email: <%=userToSend['email']%></p>
+            </div>
+            <p class="your-data-p" id="fullName-text">Full: <%=userToSend['fullName']%></p>
+        </div> 
+
+        <%if(conditionStatistics){%>
+        <p id="your-statistics">Your statistics</p>
+        <div id="your-data-statistics">
+            <div>
+                <p class="your-data-statistics-p-title">Total No. of decks:</p>
+                <p class="your-data-statistics-p-number"><%=userToSend['noDecks']%></p>
+            </div>
+            <div>
+                <p class="your-data-statistics-p-title">No. of decks remaining:</p>
+                <p class="your-data-statistics-p-number"><%=userToSend['noDecksRemaining']%></p>
+            </div>
+            
+            <div class="your-data-statistics-div">
+                <p class="your-data-statistics-p-title">Deck with most failures: <%=userToSend['noFailurePerCard']['_id']%></p>
+                <p class="your-data-statistics-p-number"><%=userToSend['noFailurePerCard']["count"]%></p>
+            </div>
+            <div class="your-data-statistics-div">
+                <p class="your-data-statistics-p-title">Deck with most unlearned card: <%=userToSend['noUnlearnedCard']['_id']%></p>
+                <p class="your-data-statistics-p-number"><%=userToSend['noUnlearnedCard']["count"]%></p>
+            </div>
+            <div class="your-data-statistics-div">
+                <p class="your-data-statistics-p-title">Most accessed deck: <%=userToSend['MostAccessedDeck']['_id']%></p>
+                <p class="your-data-statistics-p-number"><%=userToSend['MostAccessedDeck']["maxAccessedDeck"]%></p>
+            </div>
+            <div class="your-data-statistics-div">
+                <p class="your-data-statistics-p-title">less accessed deck: <%=userToSend['lessAccessedDeck']['_id']%></p>
+                <p class="your-data-statistics-p-number"><%=userToSend['lessAccessedDeck']["lessAccessedDeck"]%></p>
+            </div>
+        </div>
+        <%}else{%>
+            <p id="no-one-deck">No one deck registered</p> 
+        <%}%>
+    </div>
+
+    <div id="part02-border">
+        <p id="part02-title">Cards you learned</p>
+        
+        <div id="part02-grid">
+
+            <%if(decks){%>
+                
+                <%for(let i=0;i<decks.length;i++){%>
+                    
+                            
+                    <a class="part02-deck-link" href=<%='/user/'+decks[i]['_id']%> >
+                
+                        <div class="part02-my-deck">
+
+                            <p class="part02-data"><%=decks[i]["title"]%></p>
+                            <p class="part02-data"><%=decks[i]['description']%></p>
+                            <p class="part02-data">Data da criação:<%=date[i]%></p>
+
+                        </div>
+                
+                    </a>
+                    
+                <%}%>
+
+            <%}else{%>
+                <p id="part02-logged-results">No one yet</p>
+            <%}%>
+        
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer-text">Developed by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+</body>
+</html>

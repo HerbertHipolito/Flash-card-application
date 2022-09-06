@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/words.css">
+</head>
+
+<body>
+    
+    <header>
+
+        <div id="header-div">
+            <div id="header-logo">
+                <p id="header-logo-img">logo aqui</p>
+            </div>
+            <ul id="header-ul">
+                <li class="header-li" id="header-li-middle"><a href="../../">Home</a></li>
+                <li class="header-li">Contact</li>
+            </ul>
+
+            <div id="header-button">
+                <p id="header-button-my-count"><a href="/user/myAccount">My account</a></p>
+                <p id="header-button-logout"><a href="/logout">logout</a></p>
+            </div>
+            
+        </div>
+    
+    </header>
+
+    <div id="register">
+
+        <div id="register-border">
+
+            <p id="login-title">Register new words</p>
+            
+            <%if(page===1){%>
+           
+                <form method="get" id="form-login">
+                    <div id="tutorial-div">
+                        <p id="id-tutorial">Copy and paste just the Youtube video ID as following: https://www.youtube.com/watch?v=<p id="id-example">VTPnXfYcaXI</p> </p>
+                    </div>
+                    
+                    <div class="div-input">
+                        <input type="text" placeholder="Video Id" id="videoId" class="form-input" name="id-video" required ><br>
+                    </div>
+
+                    <%if(error){%>
+                        <div id="error-div">
+                            <p>Could not find captions for that video</p>
+                        </div>
+                    <%}%>
+                    
+                    <a id="insertLink" href="./insertLink">
+                        <input type="button" id="button-get-words" value="Get words" >
+                    </a>
+
+                    <p id="loading" hidden="true">Loading....</p>
+                <script>
+
+                    var myPath = document.getElementById('insertLink');
+                    var videoId = document.getElementById('videoId');
+                    var loadingMessage = document.getElementById('loading');
+
+                    myPath.addEventListener('click',()=>{
+                
+                        if(videoId.value){
+                            loadingMessage.hidden = false; 
+                            myPath.setAttribute('href',`./insertLink/${videoId.value}`);
+                        }
+                    })
+
+                </script>
+            <%}%>
+            <%if(page===2){%>
+                
+                <form method="post" id="form-checkbox">
+                    
+                    <div id="all-div">
+                        <p>Check all checkbox</p>
+                        <input id="all-div-checkbox" type="checkbox">
+                    </div>
+                    
+                    <div id="words-area">
+                        
+                        <%for(word of words){%>
+                            <div class="word-id">
+                                <p class="word-id-p"><%=word%></p>
+                                <input type="checkbox" class="radio-words" title=<%=`${word}`%> name=<%=`${word}`%> >
+                            </div>
+                        <%}%>
+                    </div>
+
+                    <form  method="post">
+                        <input type="text" placeholder="Deck name" id="deck-Name" class="form-input" name="deckName">
+                        <input value="Next"  type="submit" id="button-checkbox">                 
+                    </form>
+                    
+                    <script>
+        
+                        var firstCheckBox = document.getElementById('all-div-checkbox');
+                        var allCheckBox = document.getElementsByClassName('radio-words');
+                           
+                        firstCheckBox.addEventListener('click',()=>{
+                
+                            for(checkBox of allCheckBox){
+                                checkBox.checked = !checkBox.checked;
+                            }
+                
+                        })
+                
+                    </script>
+                
+
+            <%}%>
+
+            <%if(page===3){%>
+                <div id="result-message">
+                    <p>The Words have successfully been added in your deck!. </p>
+                </div>
+            <%}%>
+
+    </div>
+    
+  
+    <footer>
+        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+
+</body>

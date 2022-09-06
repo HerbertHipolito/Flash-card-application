@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    
+    <%-header%>
+
+    <div id="part01">
+
+        <div id="part01-border-accessDeck">
+            <p id="part01-border-title">let's go!</p>
+            <p id="part01-border-chosen">The deck chosen is <%=myDeck['title']%></p>
+            
+            <form method="post" id="cards-i-need-to-learn">
+                <%if(randomCardName){%>
+                    <div id="card-name-div">
+                        <p id = "card-Name" class = "randomCardName"><%=randomCardName%></p>
+                        <input type="button" value="!" id="hear">
+                    </div>
+                    <input type="button" value = "Reveal the answser" id="reveal-button">
+                    <p id = "card-answser" hidden="true"><%=answerRandomCardName%></p>
+                   
+                    <div id = "information-div" hidden="false">
+                        <p id = "hit-rate" class = "information-p" hidden="true">Learning hit: <%=hitRate%></p>
+                        <p id = "remaining-card" class = "information-p" hidden="true">N. of cards remaining: <%=remainingCards%></p>
+                    </div>
+
+                    <div id="rate-control">
+                        <label for="rate-input">Word rate:</label>
+                        <input type="range" min="0.2" max="2" value="1" step="0.1" id="rate-input">
+                    </div>
+                <%}else{%>
+                    <p class = "randomCardName">All cards has already been learned</p> 
+                <%}%>
+                
+                <input type="text" id="card-input" name="userAnswer" placeholder="Answer" required>
+                
+                <div id="radio-div">
+                    <input type="checkbox" id="radio-hidden" name="radio-hidden" value="hide">
+                    <label for="hide">Show the information about your tries </label><br>
+                    <p id="not-supported" hidden="true">The Speech is not supported on your browser</p>
+                </div>
+                
+                <div id="card-buttons">
+                    <input type="submit" id="card-buttons-check" class="card-buttons-class" name = "cardButton" value="Check">
+                    <input type="submit"  class="card-buttons-class" name = "cardButton" value="I learned it">
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+
+</body>
+
+<script>
+
+    function speak(content){
+
+        var rateWords = document.getElementById('rate-input');
+
+        if('speechSynthesis' in window){
+
+            const synth = window.speechSynthesis;
+            let ourText = content.textContent;
+    
+            const utterThis = new SpeechSynthesisUtterance(ourText);
+
+            utterThis.rate = rateWords.value;
+            utterThis.lang = "en-US";
+            
+            synth.speak(utterThis);
+    
+        }else{
+            console.log("Web Speech API not supported :-(")
+            notSupported.hidden = false;
+        }
+    
+    }
+
+    var radio = document.getElementById('radio-hidden');
+    var elements = document.getElementsByClassName('information-p');
+    var cardContant = document.getElementById('card-Name');
+    var notSupported = document.getElementById('not-supported');
+    var checkButton = document.getElementById('card-buttons-check');
+    var revealButton = document.getElementById('reveal-button');
+    var answer = document.getElementById('card-answser');
+    var hearAgainButton = document.getElementById('hear');
+
+    speak(cardContant)
+
+    hearAgainButton.addEventListener('click', ()=>{
+        speak(cardContant)
+    })
+    
+    radio.addEventListener('click',() =>{ //show elements when clicking in the box.
+        
+        elements[0].hidden = !elements[0].hidden
+        elements[1].hidden = !elements[1].hidden
+
+    })
+
+    revealButton.addEventListener('click',()=>{ // Reveal the answer.
+        answer.hidden = !answer.hidden;
+    });
+
+</script>
+
+</html>

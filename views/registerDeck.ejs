@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    
+    <%-header%>
+
+    <div id="register">
+
+        <div id="register-border">
+
+            <p id="login-title">Register a new deck</p>
+
+            <form method="post" id="form-login">
+                <div class="div-input">
+                    <input type="text" placeholder="Title" class="form-input" name="title" required><br>
+                </div>
+                
+                <div class="div-input">
+                    <input type="text" placeholder="Description" class="form-input" name="description" required><br>
+                </div>
+
+                <div class="div-input">
+                    <input type="text" placeholder="Content" class="form-input" name="content"><br>
+                </div>
+                <p id="content-example"> word1:translatedWord1#word2:translatedWord2</p>
+                
+                <%if(error){%>
+                    <p id="content-error"><%=error%></p>
+                <%}%>
+                <div id="form-buttons-deck" class="form-buttons-register">
+                    <input id="form-buttons-create" type="submit" value="Create" class="form-button">
+                    <input type="reset" value="Reset" class="form-button">
+                </div>
+                
+                <div id="youtube-register">
+                    <p> Register new cards through the ID Youtube video <a href="../user/insertLink">here</a>.<br>  
+                     The words said on the video will be transformed into cards, making easy your job. </p>
+                 </div>
+        </div>        
+                
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+
+</body>

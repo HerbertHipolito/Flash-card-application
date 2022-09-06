@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    
+    <%-header%>
+
+    <div id="register">
+
+        <div id="register-border">
+
+            <p id="login-title">Welcome!</p>
+
+            <form method="post" id="form-login">
+                <div class="div-input">
+                    <input type="text" placeholder="login" class="form-input" name="login" required><br>
+                </div>
+                <div class="div-input">
+                    <input type="text" placeholder="name" class="form-input" name="name" required><br>
+                </div>
+                <div class="div-input">
+                    <input id="pwd1" type="password" placeholder="password" class="form-input" name="password" required><br>
+                </div>
+                <div class="div-input"> 
+                    <input id="pwd2" type="password" placeholder="Repeat password" class="form-input" name="password2" required><br>
+                </div>
+                <div class="div-input">
+                    <input type="text" placeholder="email" class="form-input" name="email" required><br>
+                </div>
+                
+                <div id="div-register-validation">
+
+                </div>
+
+                <div id="form-buttons" class="form-buttons-register">
+                    <input id="form-buttons-create" type="submit" value="Create" class="form-button">
+                    <input type="reset" value="Reset" class="form-button">
+                </div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+
+</body>
+
+<script>
+    var pwd1 = document.getElementById('pwd1');
+    var pwd2 = document.getElementById('pwd2');
+    var createButton = document.getElementById('form-buttons-create');
+
+    createButton.disabled = true;
+    
+    function validationInputs () {
+     
+        var firstPwd = document.getElementById('pwd1').value;
+        var secondPwd = document.getElementById('pwd2').value;
+        var registerValidation = document.getElementById('div-register-validation');
+
+        if(registerValidation?.firstChild) registerValidation.removeChild(registerValidation.firstChild);
+
+        if(secondPwd !== firstPwd){
+
+            var p = document.createElement('p');
+            p = registerValidation.appendChild(p);
+            p.appendChild(document.createTextNode('The passwords are different'));
+
+        }else if(!(firstPwd.length > 6 && secondPwd.length > 6)){
+
+            var p = document.createElement('p');
+            p = registerValidation.appendChild(p);
+            p.appendChild(document.createTextNode('The password must be at least 7 characters'));
+
+        }else{
+            createButton.disabled = false;
+        }
+
+    }
+
+    pwd1.addEventListener('input', validationInputs );
+    pwd2.addEventListener('input', validationInputs );
+
+</script>
+
+</html>

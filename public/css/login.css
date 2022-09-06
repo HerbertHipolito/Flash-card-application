@@ -1,0 +1,128 @@
+
+
+#login-border,#register-border{
+    min-height: 70vh;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+}
+
+#login-border{
+    min-height: 69vh;
+    margin-top: 20vh;
+}
+
+.div-input{
+    padding-top: 5vh;
+}
+
+.div-input input,.form-input{
+    width: 30vw;
+    padding: 1vh 0;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom: solid black 1px;
+    font-size: 130%;
+}
+#form-buttons,#form-buttons-deck{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:3vh 3vw;
+}
+
+#form-buttons-deck{
+    margin: 3vh 28vw;
+}
+
+#youtube-register p{
+    font-size: 150%;
+    margin: 10vh 15vw;
+}
+
+#youtube-register p a{
+    text-decoration: none;
+    font-size: 120%;
+    color: white;
+    background-color: black;
+    padding: 0.5vh 0.9vw;
+    border-radius: 10%;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+    border: 1px solid black;
+}
+
+#loading{
+    margin-top: 10vh;
+    font-size: 250%;
+}
+
+#youtube-register p a:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+#form-buttons input,#form-buttons-deck input{
+    background-color: black;
+    color: white;
+    padding: 1.5%;
+    font-size: 150%;
+    cursor: pointer;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+
+}
+
+#form-buttons input:hover,#form-buttons-deck input:hover{
+    background-color: white;
+    color: black;
+}
+
+.form-buttons-register{
+    padding-top: 1.5vh;
+}
+
+#login-title{
+    font-size: 200%;
+    font-weight: 500;
+}
+
+#div-register-validation {
+    padding: 2vh 0%;
+    text-align: center;
+    
+}
+
+#div-register-validation p {
+    background-color: rgb(237, 35, 24);
+    color: white;
+    padding: 1vh 0;
+    font-weight: 500;
+}
+
+#form-login-forget{
+    cursor: pointer;
+    margin: 2vh 0;
+    padding: 1vh 1vw;
+    transition-timing-function: ease-out;
+    transition-duration: 0.6s;
+    width: fit-content;
+}
+
+#login-forget-a{
+    text-decoration: none;
+    color:black
+}
+
+#form-login-forget:hover{
+    padding: 1vh 1vw;
+    background-color: black;
+    color: white;
+    width: fit-content;
+}

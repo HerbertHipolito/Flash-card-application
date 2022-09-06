@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    
+    <%-header%>
+
+    <div id="part01">
+        <div id="part01-border">
+            
+            <div id="part01-line01">
+                <div id="part01-line01-left-side">
+                    <p id="body-text-title">Why should i use Flashcards?</p>
+                    <p id="body-text-explanation">Flashcards are handy and simple tools to learn a new subject or evolve your vocabulary in another language quickly. Here, you define a set of words and 
+                        see and review them periodically in order to learn them. Check out our features and enjoy!
+                    </p>
+                    <p id="body-text-scroll">Scroll down to see how we work</p>
+                </div>
+            </div>
+           
+        </div>
+       
+    </div>
+
+    <div id='part02'>
+        <div id="part02-border">
+            <%if(logged){%>
+                <p id="part02-title">Your decks</p>
+                <p id="part02-button-new-deck-p"><a id="part02-button-new-deck" href="/user/registerDeck">Create new Deck</a></p>
+                <div id="deck-area">
+                    <%if(decks){%>
+            
+                        <%for(let i=0;i<decks.length;i++){%>
+                            <div>
+                                <a href=<%='/user/'+identification[i]%> class = "deck-area-first-a">
+                                    <div class="part02-logged-deck">                                                                        
+                                            <p class="part02-logged-title"><%=decks[i]["title"]%></p>
+                                            <p class="part02-logged-description"><%=decks[i]['description']%></p>
+                                            <p class="part02-logged-date">Data da criação:<%=dates[i]%></p> 
+                                                                         
+                                    </div>
+                                </a>
+                                <div class="a-delete">
+                                    <a href= <%='/user/delete/'+identification[i]%> >X</a>
+                                </div>
+                            </div>
+                            
+                        <%}%>
+
+                    <%}else{%>
+                        <p id="part02-logged-results">Nao ha decks cadastrados</p>
+                    <%}%>
+                </div>
+            <%}else{%>
+                <p id="part02-title"> Entre na sua conta para acessar seus decks</p>
+            <%}%>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+    </footer>
+
+</body>
+
+
+
+</html>
