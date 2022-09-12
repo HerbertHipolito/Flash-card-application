@@ -4,11 +4,18 @@ const app = express();
 const path = require('path');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const session = require('express-session');
 const {isAuthUser,isAuthAdmin} = require('./middlewares/auth');
 
 const store = new session.MemoryStore();
 
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Headers','GET,PUT,POST,DELETE');
+    app.use(cors());
+    next()
+})
 const connectDB = require('./config/dbconfig');
 
 const PORT = process.env.PORT || 3500;
