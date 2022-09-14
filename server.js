@@ -38,6 +38,7 @@ app.use(session({
 }));
 
 app.use('/', express.static(path.join(__dirname, '/public')));
+
 app.use('/',require('./routes/root'));
 app.use('/login',require('./routes/login'));
 app.use('/logout',require('./routes/logout'));
@@ -52,4 +53,3 @@ mongoose.connection.once('open',()=>{
 
 //to-do list:
 //figure out a way to user choose a voice linguage and implement it.
-// add the option to delete for each card.
