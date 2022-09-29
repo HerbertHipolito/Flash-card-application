@@ -24,18 +24,17 @@ const getSelectWords = (req,res) =>{
     lang: 'en' // default: `en`
     
 }).then(function(captions) {
-        
+
         let textM = '';
         for(let i=0;i<captions.length; i++){
-        textM += captions[i].text;
+        textM += " "+captions[i].text;
         }
-        
+
         textM = textM.replaceAll("."," ");   //The captions sometimes received have two words gathered by . or , . Then, they are replaced with a space character.
         textM = textM.replaceAll(","," ");
-
         const words = textM.split(" "); 
         uniqWords = [...new Set(words)]; // Remove duplicate words.
-        
+        console.log(uniqWords)
         return res.render(path.join('..','views','registerLink'),{
             page:2,
             words:uniqWords
@@ -73,7 +72,6 @@ const postSelectWords = async (req,res) =>{
         var translatedwords = await translate(englishWords, "pt");
 
         translatedwords = translatedwords.split(",");
-        console.log(translatedwords);
 
         for(let i=0;i<translatedwords.length;i++){ //Joining the cards with the new ones.
 
@@ -83,7 +81,6 @@ const postSelectWords = async (req,res) =>{
         }
 
         var myCards = [...new Map(myCards.map(v => [v.nameCard, v])).values()] // Removing duplicate cards based on the nameCard attribute.
-
         myDeck.content = myCards;
         const result = await myDeck.save();
 
