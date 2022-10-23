@@ -4,19 +4,23 @@ const translate = require('translate');
 const decks = require('../model/deck');
 const users = require('../model/user');
 
-const getInputYoutubeWords = (req,res) =>{
+function removeDuplicates(Allwords,learnedWords) {
+    return Allwords.filter((word,
+        index) => learnedWords.indexOf(word) === -1);
+}
 
+const getInputYoutubeWords = (req,res) =>{
     return res.render(path.join('..','views','registerLink'),{
         page:1,
         error:false
     });
-
 }
 
-const getSelectWords = (req,res) =>{
+const getSelectWords = async (req,res) =>{
 
     if(!req?.params?.id || req?.params?.id === "") return res.status(400).json({'message':' Id video not received'});
-
+    const user = await users.findOne({login:req.session.user.login});
+    
     var getSubtitles = require('youtube-captions-scraper').getSubtitles;
 
     const allPhases = getSubtitles({
@@ -29,15 +33,23 @@ const getSelectWords = (req,res) =>{
         for(let i=0;i<captions.length; i++){
         textM += " "+captions[i].text;
         }
-
-        textM = textM.replaceAll("."," ");   //The captions sometimes received have two words gathered by . or , . Then, they are replaced with a space character.
+        textM = textM.replace(/[\r\n]/gm, '');  // Remove line break.
+        textM = textM.replaceAll("   "," ").replaceAll("  "," "); // Some phrases may be sepaated by 1 or 2 space character.
+        textM = textM.replaceAll("."," ");   //The captions sometimes have two words gathered by . or , . Then, they are replaced with a space character.
         textM = textM.replaceAll(","," ");
-        const words = textM.split(" "); 
-        uniqWords = [...new Set(words)]; // Remove duplicate words.
-        console.log(uniqWords)
+        textM = textM.toLowerCase();
+
+        var words = textM.split(" "); 
+
+        var learnedWords = user.familiarWords;
+
+        words = [...new Set(words)];
+        const unknownWords =  removeDuplicates(words,learnedWords)// Remove duplicated words.
+
         return res.render(path.join('..','views','registerLink'),{
             page:2,
-            words:uniqWords
+            words:words,
+            unknownWords:unknownWords
                 }
             )
         }

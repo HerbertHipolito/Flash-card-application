@@ -22,6 +22,10 @@ const userSchema = new Schema({
     role:{
         type:String,
         required:true
+    },
+    familiarWords:{
+        type:Array,
+        default:[]
     }
 });
 

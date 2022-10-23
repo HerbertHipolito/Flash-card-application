@@ -12,15 +12,24 @@
 #button-get-words:hover{
     background-color:white;
     color: black;
-
 }
 
 
-#words-area{
-    margin: 5vh 3vw;
+.words-area{
+    padding: 5vh 3vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+
+#unknown-word-area-p,#all-word-area-p{
+    font-size: 180%;
+    margin: 3vh 0;
+    text-align: center;
+    border-bottom: 1px solid black;
+    width: fit-content;
+    margin: auto;
+}
+
 
 .word-id{
     display: flex;

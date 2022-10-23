@@ -86,15 +86,37 @@
                         <p>Check all checkbox</p>
                         <input id="all-div-checkbox" type="checkbox">
                     </div>
-                    
-                    <div id="words-area">
+
+                    <div class="words-area-father">
                         
-                        <%for(word of words){%>
-                            <div class="word-id">
-                                <p class="word-id-p"><%=word%></p>
-                                <input type="checkbox" class="radio-words" title=<%=`${word}`%> name=<%=`${word}`%> >
-                            </div>
-                        <%}%>
+                        <p id="unknown-word-area-p"> unknown words </p>
+
+                        <div class="words-area" id="unknown-word-area">                            
+
+                            <%for(word of unknownWords){%>
+                                <div class="word-id">
+                                    <p class="word-id-p"><%=word%></p>
+                                    <input type="checkbox" class="radio-words" title=<%=`${word}`%> name=<%=`${word}`%> >
+                                </div>
+                            <%}%>
+                        </div>
+                        
+                    </div>
+
+                    <div class="words-area-father">
+
+                        <p id="all-word-area-p"> All words </p>
+
+                        <div class="words-area" id="all-word-area">
+                            
+                            <%for(word of words){%>
+                                <div class="word-id">
+                                    <p class="word-id-p"><%=word%></p>
+                                    <input type="checkbox" class="radio-words" title=<%=`${word}`%> name=<%=`${word}`%> >
+                                </div>
+                            <%}%>
+                        </div>
+
                     </div>
 
                     <form  method="post">
