@@ -89,13 +89,13 @@
 
                     <div class="words-area-father">
                         
-                        <p id="unknown-word-area-p"> unknown words </p>
+                        <p id="unknown-word-area-p"> unknown words </p>                        
 
                         <div class="words-area" id="unknown-word-area">                            
 
                             <%for(word of unknownWords){%>
-                                <div class="word-id">
-                                    <p class="word-id-p"><%=word%></p>
+                                <div class="word-id" >
+                                    <p class="word-id-p" draggable="true" ><%=word%></p>
                                     <input type="checkbox" class="radio-words" title=<%=`${word}`%> name=<%=`${word}`%> >
                                 </div>
                             <%}%>
@@ -128,17 +128,17 @@
         
                         var firstCheckBox = document.getElementById('all-div-checkbox');
                         var allCheckBox = document.getElementsByClassName('radio-words');
-                           
+                        var container = document.getElementById('box-words');         
+
                         firstCheckBox.addEventListener('click',()=>{
                 
                             for(checkBox of allCheckBox){
                                 checkBox.checked = !checkBox.checked;
+                                }
+                
                             }
-                
-                        })
-                
-                    </script>
-                
+                        )
+                    </script>       
 
             <%}%>
 
@@ -152,7 +152,7 @@
     
   
     <footer>
-        <p id="footer-text">Developed  by Herbert Hipólito - Access my github to more information.</p>
+        <p id="footer-text">Developed by Herbert Hipólito - Access my github to more information.</p>
     </footer>
 
 </body>

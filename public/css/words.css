@@ -56,6 +56,12 @@
     cursor: pointer;
 }
 
+#box-words{
+    padding:  3vh;
+    margin:  3vh;
+    border: 1px solid black;
+}
+
 #deck-Name{
     margin-bottom: 5vh;
 }

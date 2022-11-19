@@ -37,8 +37,7 @@
                 <p id="part02-title">Your decks</p>
                 <p id="part02-button-new-deck-p"><a id="part02-button-new-deck" href="/user/registerDeck">Create new Deck</a></p>
                 <div id="deck-area">
-                    <%if(decks){%>
-            
+                    <%if(decks.length>0){%>
                         <%for(let i=0;i<decks.length;i++){%>
                             <div>
                                 <a href=<%='/user/'+identification[i]%> class = "deck-area-first-a">
@@ -61,7 +60,47 @@
                     <%}%>
                 </div>
             <%}else{%>
-                <p id="part02-title"> Entre na sua conta para acessar seus decks</p>
+
+                <div id="information-part3">
+                    <div class="description-aplication">
+                        <img src="/img/user-icon.png" alt="youtubeid" class="icon">
+                        <p>
+                            Instead of writting the words one by one, you can get them through a Youtube video link. The list of words spoken in the video
+                            is going to appear and you are going to be able to select which one you want to insert into your deck.
+                        </p>
+                    </div>
+                    <div class="description-aplication">
+                        <img src="/img/user-icon.png" alt="word" class="icon">
+                        <p>
+                            After selecting your first words, you can see and review these words as much as you wish, including at different speaking rates.
+                            Simple statistics can be seen to measure your learning for each word.   
+                        </p>
+                    </div>
+                    <div class="description-aplication">
+                        <img src="/img/user-icon.png" alt="dashboard" class="icon">
+                        <p>
+                            You have access to a dashboard that contains information about your decks and their unlearned words. this dashboard is useful
+                            for tracking your weakness and most difficult decks.
+                        </p>
+                    </div>
+                </div>
+
+                <p id="part02-title-2">Some decks</p>
+
+                <div id="deck-area-2">
+                    <%if(someDecks.length>0){%>
+                        <%for(let i=0;i<someDecks.length;i++){%>
+                            <div>
+                                <div class="part02-logged-deck-2">                                                                        
+                                        <p class="part02-logged-title"><%=someDecks[i]["title"]%></p>
+                                        <p class="part02-logged-description"><%=someDecks[i]['description']%></p>                        
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}else{%>
+                        <p id="part02-logged-results">Nao ha decks cadastrados</p>
+                    <%}%>
+                </div>
             <%}%>
         </div>
     </div>

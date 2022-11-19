@@ -2,6 +2,10 @@ footer{
     border-top: 1px solid black;
     text-align: center;
     background-color: black;
+    position:fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
 }
 
 #footer-text{

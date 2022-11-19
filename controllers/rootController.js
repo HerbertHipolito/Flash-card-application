@@ -8,14 +8,12 @@ const getRootController = async (req,res) =>{
     var header = 'initialHeader';
     var condition = false;
     var userDecks = null;
-    
-    if(req.session.authenticated) {
-        header = 'loggedHeader';
-        condition = true;
-    }
+    var someDecks = null;
     
     if(req.session.authenticated){
 
+        header = 'loggedHeader';
+        condition = true;
         userDecks = await decks.find({author:req.session.user.login});
         var newDates = [];
         var ids = []; 
@@ -27,10 +25,13 @@ const getRootController = async (req,res) =>{
 
         }
         
+    }else{
+        someDecks = await decks.find().limit(12);
     } 
     
 
-    htmlTagsController([header]).then( 
+    htmlTagsController([header]).then(
+         
         (tags)=>{
             
             res.render(path.join('..','views','main'),{
@@ -38,7 +39,8 @@ const getRootController = async (req,res) =>{
                 logged:condition,
                 decks:userDecks,
                 dates:newDates,
-                identification:ids
+                identification:ids,
+                someDecks:someDecks
             })
         }
     )

@@ -22,6 +22,7 @@
     margin-right: 1vw;
     transition-timing-function: ease;
     transition-duration: 0.5s;
+    border: 1px solid white;
 }
 
 #header-button p a:hover{

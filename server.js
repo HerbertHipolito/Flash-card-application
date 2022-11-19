@@ -52,4 +52,6 @@ mongoose.connection.once('open',()=>{
 
 
 //to-do list:
-//figure out a way to user choose a voice linguage and implement it.
+//Implement drag and drop functionality. https://www.youtube.com/watch?v=tONadwAs_Hw&t=606s
+//https://developer.mozilla.org/pt-BR/docs/Web/API/HTML_Drag_and_Drop_API
+//https://www.youtube.com/watch?v=wv7pvH1O5Ho
