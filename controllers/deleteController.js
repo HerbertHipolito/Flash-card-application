@@ -7,7 +7,7 @@ const deleteController = async (req,res) =>{
     try{
 
         const result = await decks.deleteOne({ _id: req.params.id });
-        return res.status(200).redirect('/');
+        return res.status(200)
 
     }catch(error){
 

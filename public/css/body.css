@@ -3,19 +3,21 @@ body{
     user-select: none;
 }
 
+
 #part01-border{
+    background:url("/img/froggy.jpeg") no-repeat center center / cover;
     min-height: 60vh;
     padding: 8vh 2vh;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    box-shadow: 0px 6px 16px black;
 }
 
 #part01-line01-left-side{
-    max-width: 60vw;
+    max-width: 80vw;
+    font-size: 130%;
 }
 
 
@@ -67,12 +69,13 @@ body{
 
 #part02-border{
     min-height: 60vh;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.913);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10vh 0;
+    margin: 0 0;
+    padding: 10vh 0;
 }
 
 #part02-title{
@@ -165,7 +168,7 @@ body{
 
 #part02-title-2{
     padding:5vh;
-    font-size: 220%;
+    font-size: 280%;
 }
 
 #deck-area a{
@@ -281,6 +284,7 @@ body{
     cursor: pointer;
     transition-timing-function: ease;
     transition-duration: 0.5s;
+    box-shadow: 0px 0px 6px black;
 }
 
 .card-buttons-class:hover{
@@ -372,16 +376,17 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 90vh;
-    margin: 15vh 3vw;
+    height: 80vh;
+    margin: 10vh 3vw;
 }
 
 .description-aplication{
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 13vh 1vw ;
+    padding: 10vh 0.8vw ;
     text-align: left;
     box-shadow: 0px 0px 4px black;
     margin: 0 2vw;

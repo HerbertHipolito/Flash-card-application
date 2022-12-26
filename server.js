@@ -16,6 +16,7 @@ app.use((req,res,next)=>{
     app.use(cors());
     next()
 })
+
 const connectDB = require('./config/dbconfig');
 
 const PORT = process.env.PORT || 3500;
@@ -50,8 +51,3 @@ mongoose.connection.once('open',()=>{
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
 
-
-//to-do list:
-//Implement drag and drop functionality. https://www.youtube.com/watch?v=tONadwAs_Hw&t=606s
-//https://developer.mozilla.org/pt-BR/docs/Web/API/HTML_Drag_and_Drop_API
-//https://www.youtube.com/watch?v=wv7pvH1O5Ho
